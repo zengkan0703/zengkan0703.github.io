@@ -6,17 +6,34 @@
   <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
   <title>Document</title>
   <style>
-    .code {
-      width: 70%;
+    .box {
       position: absolute;
       left: 50%;
-      top: 50%;
-      transform: translate(-50%, -70%);
+      top: 50px;
+      transform: translateX(-50%);
+    }
+    .code {
+      width: 70vw;
+      min-width: 300px;
+    }
+    .info {
+      width: 70vw;
+      min-width: 300px;
+    }
+    .info p {
+      font-size: 20px;
     }
   </style>
 </head>
 <body>
-  <img class="code" src="./img/code.png" alt="">
+  <div class="box">
+    <div class="info">
+      <h1>彩蛋</h1>
+      <p>这句话里面隐藏了一个小彩蛋，复制这段文字，扫描下面二维码打开「悄悄话工具」微信小程序，在「查看悄悄话」里面查看就能得到隐藏的彩‌‌​​‌​‌‍‌‌​‌‌​‍‌‌​​‌​‍‌‌​‌​​‍‌‌​‌‌​‍‌‌‌​​‌‍‌‌​​​‌​‍‌‌​​‌​‍‌‌​‌​‌‍‌‌​​‌‌​‍‌‌​​​‌​‍‌‌​​‌​‌‍‌‌​‌‌‌‍‌‌​​‌​‍‌‌​‌‌‌‍‌‌​‌‌‌‍‌‌​​​​‍‌‌​​​​‍‌‌​‌‌​‍‌‌​​‌​‍‌‌​​​​‌‍‌‌​​‌​​‍‌‌​‌​​‍‌‌​​​‌‍‌‌​​​​‍‌‌​​​​‍‌‌​​‌‌​‍‌‌​​​‌​‍‌‌​​‌‌‍‌‌​‌​​‍‌‌​​‌‌‍‌‌‌​​​蛋。</p>
+      <p>祝你开心😊</p>
+    </div>
+    <img class="code" src="./img/code.png" alt="">
+  </div>
   <script>
     var _mtac = {};
     (function() {
