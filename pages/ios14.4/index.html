@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ios 14.4 css bug</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 300px;
+      height: 500px;
+      margin: 20px auto;
+      display: flex;
+      flex-direction: column;
+      border:10px dashed blue;
+    }
+    .box1 {
+      height: 400px;
+      flex-shrink: 1;
+      background: rgb(172, 80, 80);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
+    .box {
+      width: 50px;
+      height: 50px;
+      background: coral;
+    }
+    .box2 {
+      height: 200px;
+      flex-shrink: 0;
+      background: rgb(44, 158, 40);
+      position: relative;
+    }
+    .text {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      color: #fff;
+      padding: 10px;
+      font-size: 20px;
+    }
+    .title {
+      text-align: center;
+      margin: 20px 20px 0;
+    }
+    .subtitle {
+      text-align: center;
+    }
+    .desc {
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="title">
+    iOS 14.4 --- CSS BUG
+  </h1>
+  <h3 class="subtitle">
+    Please use iOS 14.4 safari to view
+  </h3>
+  <div class="desc">
+    <b>container</b>: blue-border-box<br/>
+    <b>box1</b>: red-background-box<br/>
+    <b>box2</b>: green-background-box<br/>
+    <br/>
+    According to the given css, the height of <b>box1</b> should be shrinked and <b>box2</b> should be fully displayed. <br/>
+    But on iOS 14.4 safari the display is wrong, the height of <b>box1</b> is not shrinked and <b>box2</b> is displayed out of the container.
+    <br/>
+    <br/>
+    <h4>Conjecture</h4>
+    The test found that this happens when <b>container</b> and <b>box1</b> both have `display: flex; flex-direction: column;`, 
+    and <b>box1</b> have `justify-content: space-between or space-around or space-evenly;`.
+  </div>
+  <div class="container">
+    <div class="box1">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="text">
+        <p>height: 400px;</p>
+        <p>flex-shrink: 1;</p>
+        <p>display: flex;</p>
+        <p>flex-direction: column;</p>
+        <p>align-items: center;</p>
+        <p>justify-content: space-between;</p>
+      </div>
+    </div>
+    <div class="box2">
+      <div class="text">
+        <p>height: 200px;</p>
+        <p>flex-shrink: 0;</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
